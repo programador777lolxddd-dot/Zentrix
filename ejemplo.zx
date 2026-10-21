@@ -1,0 +1,9 @@
+// Ejemplo básico de Zentrix
+var lenguaje = "Zentrix";
+imprimir("Hola desde " + lenguaje);
+
+si (3 > 1) {
+  imprimir("Zentrix está funcionando como experimento.");
+} sino {
+  imprimir("Algo salió diferente.");
+}
