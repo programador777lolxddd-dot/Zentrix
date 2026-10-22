@@ -2,35 +2,104 @@
 
 # ⚡ Zentrix
 
-### Un experimento de lenguaje inspirado en JavaScript
+### 🧪 Un experimento de lenguaje inspirado en JavaScript
 
-**HECHO POR CHATGPT — NO ES UN PROYECTO OFICIAL DEL CREADOR DE ZENIT.**
+<p>
+  <img src="https://img.shields.io/badge/estado-experimental-orange?style=for-the-badge&logo=flask&logoColor=white" alt="Experimental">
+  <img src="https://img.shields.io/badge/versión-0.1.0--experimental-blue?style=for-the-badge&logo=semver&logoColor=white" alt="Versión">
+  <img src="https://img.shields.io/badge/licencia-MIT-green?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="Licencia">
+</p>
 
-![Experimental](https://img.shields.io/badge/estado-experimental-orange)
-![Version](https://img.shields.io/badge/version-0.1.0--experimental-blue)
-![MIT](https://img.shields.io/badge/licencia-MIT-green)
+<p>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
+</p>
+
+> *«Escribe JavaScript… pero con un toque en español.»*
 
 </div>
 
 ---
 
-## ⚠️ Aviso importante: experimento, no proyecto oficial
+<div align="center">
 
-**Zentrix es un experimento generado por ChatGPT. No es oficial, no representa al creador oficial de Zenit y no debe interpretarse como una crítica a esa persona ni a su trabajo.**
+### 🎯 Tabla de contenidos
 
-> **Por favor, no utilicen este repositorio para atacar, comparar de forma maliciosa ni criticar al creador oficial de Zenit.** Este proyecto existe únicamente como experimento técnico y educativo. La inspiración en Zenit no implica afiliación, aprobación ni autoría compartida.
+| 🧭 | Sección |
+| :---: | :--- |
+| 🧪 | [¿Qué es Zentrix?](#-qué-es-zentrix) |
+| ⚠️ | [Aviso de seguridad](#️-aviso-de-seguridad) |
+| 🚀 | [Inicio rápido](#-inicio-rápido) |
+| 📚 | [Palabras disponibles](#-palabras-disponibles) |
+| 🧩 | [API](#-api) |
+| 🧱 | [Limitaciones](#-limitaciones) |
+| 🗺️ | [Ideas futuras](#️-ideas-futuras) |
+| 🤝 | [Contribuir](#-contribuir) |
+| 📄 | [Licencia](#-licencia) |
 
-Zentrix no es una versión oficial de Zenit ni pretende reemplazarlo. Su código inicial fue escrito por ChatGPT a petición del usuario que solicitó este experimento.
+</div>
+
+---
 
 ## 🧪 ¿Qué es Zentrix?
 
-Zentrix es una pequeña capa experimental inspirada en JavaScript. Permite escribir JavaScript normal y probar algunos alias en español, como `imprimir`, `funcion`, `si`, `sino` y `retornar`.
+<div align="center">
 
-No es todavía un lenguaje de propósito general ni un compilador independiente. En esta versión, el código se transforma mediante sustituciones sencillas y se ejecuta como JavaScript.
+```text
+  ╔══════════════════════════════════════════════════╗
+  ║   Zentrix = JavaScript + un poco de español      ║
+  ╚══════════════════════════════════════════════════╝
+```
+
+</div>
+
+Zentrix es una **capa experimental** inspirada en JavaScript. Te permite
+escribir JavaScript normal y, al mismo tiempo, usar algunos alias en español
+como `imprimir`, `funcion`, `si`, `sino`, `mientras` y `retornar`.
+
+No es un lenguaje de propósito general ni un compilador independiente. En esta
+versión, el código se transforma mediante **sustituciones de texto sencillas**
+y se ejecuta como JavaScript estándar.
+
+> 💡 **En una frase:** Zentrix no interpreta nada por su cuenta; solo traduce
+> unos cuantos alias y delega todo lo demás en el motor de JavaScript del entorno.
+
+---
+
+## ⚠️ Aviso de seguridad
+
+> 🚨 **LEE ESTO ANTES DE USAR `Zentrix.ejecutar()`**
+
+`Zentrix.ejecutar()` usa `new Function`, lo que equivale a ejecutar código
+arbitrario en tu entorno.
+
+| | Regla |
+| :---: | :--- |
+| ✅ | Úsalo **solo con código propio o de total confianza** |
+| ❌ | **Nunca** lo alimentes con código de terceros, entradas de usuario o contenido descargado de internet |
+| 🔒 | Zentrix **no es un sandbox** ni pretende serlo |
+
+---
 
 ## 🚀 Inicio rápido
 
-Descarga `zentrix.js` y crea un archivo HTML:
+<div align="center">
+
+```text
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  1. Descarga│ ──▶ │  2. Crea el │ ──▶ │  3. Ejecuta │
+│  zentrix.js │     │   HTML      │     │   en el navegador │
+└─────────────┘     └─────────────┘     └─────────────┘
+```
+
+</div>
+
+### 📥 Paso 1 — Descarga `zentrix.js`
+
+Coloca el archivo junto a tu página HTML.
+
+### 📝 Paso 2 — Crea un archivo HTML
 
 ```html
 <!doctype html>
@@ -58,19 +127,53 @@ Descarga `zentrix.js` y crea un archivo HTML:
 </html>
 ```
 
-Para traducir sin ejecutar:
+### 🔎 Paso 3 — Traducir sin ejecutar
+
+Si solo quieres ver el JavaScript resultante:
 
 ```javascript
 const codigoJS = Zentrix.traducir('imprimir("Hola");');
 console.log(codigoJS);
+// → console.log("Hola");
 ```
+
+### 🎨 Ejemplo algo más completo
+
+```javascript
+Zentrix.ejecutar(`
+  funcion saludar(nombre) {
+    retornar "Hola, " + nombre;
+  }
+
+  var contador = 0;
+  mientras (contador < 3) {
+    imprimir(saludar("Zentrix #" + contador));
+    contador = contador + 1;
+  }
+`);
+```
+
+### 🟩 Uso en Node.js
+
+Zentrix solo necesita un motor de JavaScript. Para usarlo fuera del navegador,
+asegúrate de que tu copia de `zentrix.js` exponga el objeto `Zentrix`
+(por ejemplo con `module.exports`) y cárgalo como cualquier otro módulo.
+
+```javascript
+const Zentrix = require('./zentrix.js');
+Zentrix.ejecutar('imprimir("¡Hola desde Node!");');
+```
+
+---
 
 ## 📚 Palabras disponibles
 
-| Zentrix | JavaScript |
-|---|---|
+<div align="center">
+
+| 🟨 Zentrix | 🟦 JavaScript |
+| :--- | :--- |
 | `imprimir(...)` | `console.log(...)` |
-| `funcion nombre(...)` | `function nombre(...)` |
+| `funcion nombre()` | `function nombre()` |
 | `si (...)` | `if (...)` |
 | `sino { ... }` | `else { ... }` |
 | `mientras (...)` | `while (...)` |
@@ -79,36 +182,132 @@ console.log(codigoJS);
 | `falso` | `false` |
 | `nulo` | `null` |
 
-También puedes usar `let`, `const`, `var`, funciones flecha, objetos, arreglos y otras características compatibles con JavaScript.
+</div>
 
-## ⚠️ Limitaciones
+> ✨ Además puedes usar sin problemas `let`, `const`, `var`, funciones flecha,
+> objetos, arreglos y cualquier otra característica compatible con JavaScript:
+> Zentrix no las toca.
 
-- **Experimental:** versión `0.1.0-experimental`.
-- **Traducción sencilla:** los alias se reemplazan mediante expresiones regulares; no existe un parser propio y puede fallar con comentarios, cadenas o código complejo.
-- **No es un sandbox:** `Zentrix.ejecutar()` usa `new Function`. Ejecuta solo código de confianza; nunca lo uses para código de terceros o no confiable.
-- **No es independiente:** necesita un entorno JavaScript, como un navegador moderno o Node.js.
-- **No es oficial:** no está afiliado al creador original de Zenit.
+---
 
-## 🗺️ Posibles ideas futuras
+## 🧩 API
 
-- Crear un parser real.
-- Mejorar los mensajes de error.
-- Añadir pruebas automatizadas.
-- Definir y documentar una sintaxis propia.
+<table>
+<tr>
+<td width="50%" valign="top">
 
-Estas ideas no son promesas de desarrollo.
+### ▶️ `Zentrix.ejecutar(codigo)`
 
-## 📄 Licencia
+Traduce el código Zentrix y lo ejecuta inmediatamente.
 
-Zentrix se distribuye bajo la licencia **MIT**. Consulta [`LICENSE`](LICENSE).
+- **Parámetro:** `codigo` (`string`) — código fuente en sintaxis Zentrix.
+- **Devuelve:** el resultado de la última expresión evaluada (comportamiento de
+  `new Function`).
 
-## 🤝 Respeto y contexto
+</td>
+<td width="50%" valign="top">
 
-Este repositorio es un experimento técnico, no una declaración sobre el valor de Zenit ni sobre su creador. Mantén los comentarios centrados en el código y evita ataques personales.
+### 🔁 `Zentrix.traducir(codigo)`
+
+Traduce el código Zentrix a JavaScript **sin ejecutarlo**.
+
+- **Parámetro:** `codigo` (`string`) — código fuente en sintaxis Zentrix.
+- **Devuelve:** `string` con el JavaScript equivalente.
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🧱 Limitaciones
 
 <div align="center">
 
-**Zentrix · Experimento de ChatGPT · 2026**
+```text
+  ██╗     ██╗███╗   ███╗██╗████████╗███████╗
+  ██║     ██║████╗ ████║██║╚══██╔══╝██╔════╝
+  ██║     ██║██╔████╔██║██║   ██║   ███████╗
+  ██║     ██║██║╚██╔╝██║██║   ██║   ╚════██║
+  ███████╗██║██║ ╚═╝ ██║██║   ██║   ███████║
+  ╚══════╝╚═╝╚═╝     ╚═╝╚═╝   ╚═╝   ╚══════╝
+```
+
+</div>
+
+- ⚗️ **Experimental:** versión `0.1.0-experimental`. La sintaxis y la API
+  pueden cambiar sin previo aviso.
+- 🔤 **Traducción por expresiones regulares:** no existe un parser propio, por lo
+  que las sustituciones pueden afectar a comentarios, cadenas de texto o código
+  complejo (por ejemplo, una cadena que contenga la palabra `si`).
+- 🚫 **No es un sandbox:** `Zentrix.ejecutar()` usa `new Function`; ejecuta solo
+  código de confianza.
+- 🧱 **No es independiente:** requiere un entorno JavaScript, como un navegador
+  moderno o Node.js.
+- 📜 **No es oficial:** no está afiliado al creador original de Zenit.
+
+---
+
+## 🗺️ Ideas futuras
+
+<div align="center">
+
+| 🛠️ Idea | 💬 Descripción |
+| :--- | :--- |
+| 🧠 **Parser real** | Sustituir las regex por un analizador sintáctico de verdad |
+| 💬 **Errores amigables** | Mensajes claros que señalen línea y columna |
+| 🧪 **Pruebas automáticas** | Cobertura para evitar regresiones |
+| 📖 **Sintaxis propia** | Definir y documentar un lenguaje completo |
+| 📦 **Publicar en npm** | Instalación con un solo comando |
+
+</div>
+
+> 🚧 Estas ideas **no son promesas de desarrollo**, solo posibles direcciones.
+
+---
+
+## 🤝 Contribuir
+
+¿Tienes una idea, un error o una mejora? Las contribuciones son bienvenidas:
+
+```text
+1️⃣  Abre un issue describiendo el problema o la propuesta
+2️⃣  Haz un fork del repositorio
+3️⃣  Crea una rama  →  git checkout -b mi-mejora
+4️⃣  Envía un pull request explicando qué cambia y por qué
+```
+
+---
+
+## 📄 Licencia
+
+<div align="center">
+
+Zentrix se distribuye bajo la licencia **MIT**.
+
+Consulta [`LICENSE`](LICENSE) para más detalles.
+
+[![MIT License](https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge)](LICENSE)
+
+</div>
+
+---
+
+<div align="center">
+
+### ⭐ ¿Te gusta el experimento?
+
+Si Zentrix te resultó curioso, ¡deja una estrella en el repo!
+
+<br>
+
+```text
+     ⚡
+    / \
+   /   \
+  /  Z  \
+ /_______\
+```
 
 *Inspirado en JavaScript. Experimental por diseño.*
 
